@@ -6,9 +6,9 @@
 - See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video.
 
 ## Instructions to Run From Your Browser
-1) Click on the "Open in MATLAB Online" button on this GitHub ReadMe page
-2) You may need to create a free MathWorks Acccount if you don't have one already
-3) When MATLAB Online loads, double click on the live editor file called "shadowbandanalysis.mlx" and click run  
+- Click on the "Open in MATLAB Online" button on this GitHub ReadMe page
+- You may need to create a free MathWorks Acccount if you don't have one already
+- When MATLAB Online loads, double click on the live editor file called "shadowbandanalysis.mlx" and click run  
 
 ## Citations
 - We kindly request that all users of Eclipse Shadow Band Tool cite their use of the code in published work.
