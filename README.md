@@ -1,7 +1,7 @@
 # Eclipse Shadow Band Tool
 This tool will input a video of Eclipse Shadow Bands and extract features
 
-See the following https://www.youtube.com/watch?v=flDfQsxXi4E video
+See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video
 
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=JoeEngineerPilot/EclipseShadowBandTool)
 
