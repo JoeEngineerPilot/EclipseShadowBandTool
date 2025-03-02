@@ -5,6 +5,9 @@
 - Eclipse Shadow Band Tool is a file written in MATLAB for analyzing Eclipse Shadow Band features from videos. 
 - See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video.
 
+### Method
+![eclipse-shadow-band-analysis](https://github.com/user-attachments/assets/7eaf9e23-eef0-4ca5-b3d5-f2737fb995a3)
+
 ### Instructions to Run From Your Browser
 - Click on the "Open in MATLAB Online" button on this GitHub ReadMe page.
 - You may need to create a free MathWorks Acccount if you don't have one already.
