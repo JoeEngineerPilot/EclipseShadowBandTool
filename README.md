@@ -6,7 +6,8 @@
 - See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video.
 
 ### Method
-![eclipse-shadow-band-analysis](https://github.com/user-attachments/assets/7eaf9e23-eef0-4ca5-b3d5-f2737fb995a3)
+![eclipse-shadow-band-analysis](https://github.com/user-attachments/assets/02fd59a0-9871-48a5-8323-3aa6ee37d7cf)
+
 
 ### Instructions to Run From Your Browser
 - Click on the "Open in MATLAB Online" button on this GitHub ReadMe page.
