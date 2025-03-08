@@ -6,7 +6,7 @@
 - See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video.
 
 ### Method
-![eclipse-shadow-band-analysis](https://github.com/user-attachments/assets/02fd59a0-9871-48a5-8323-3aa6ee37d7cf)
+![eclipse-shadow-band-analysis](https://github.com/user-attachments/assets/760f7bd1-090d-483e-8142-a7cdfb77ca55)
 
 
 ### Instructions to Run From Your Browser
