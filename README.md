@@ -2,7 +2,7 @@
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=JoeEngineerPilot/EclipseShadowBandTool)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- Eclipse Shadow Band Tool is a file written in MATLAB for extracting Eclipse Shadow Band features from raw recorded videos. 
+- Eclipse Shadow Band Tool provides code for extracting Eclipse Shadow Band features from raw recorded videos. 
 - See the following [Eclipse Shadow Band Analysis](https://www.youtube.com/watch?v=flDfQsxXi4E) video.
 
 ### Example
