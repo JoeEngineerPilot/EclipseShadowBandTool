@@ -59,7 +59,7 @@
 - Avoid making any adjustments to camera settings once recording starts
 ---
 ### Step 6: When to Start Recording
-- Record a **1-minute test sample of video 60 minutes before totality**.
+- Record a **1-minute test sample of video 60 minutes before totality**
   - This provides a control data set and baseline
   - Only about 1-minute is needed, then you can stop
 - Start recording **10 minutes before totality (C2)**
