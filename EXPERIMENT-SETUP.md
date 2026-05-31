@@ -6,10 +6,10 @@
 - Have fun! Eclipse shadow bands are one of a kind unique event to experience!
 ---
 ### What Are Eclipse Shadow Bands?
-- [Eclipse shadow bands](https://en.wikipedia.org/wiki/Shadow_band) are a phenomenon that occurs immediately before and after a solar eclipse.
-- The phenomenon presents itself as subtle fast moving bands on the ground due to scintillation from atmospheric air turbulence.
-- While visible to the eye, shadow bands are challenging to record due to their low intensity.
-- The tool here provides code for extracting eclipse shadow band features from raw recorded videos. 
+- [Eclipse shadow bands](https://en.wikipedia.org/wiki/Shadow_band) are a phenomenon that occurs immediately before and after a solar eclipse
+- The phenomenon presents itself as subtle fast moving bands on the ground due to scintillation from atmospheric air turbulence
+- While visible to the eye, shadow bands are challenging to record due to their low intensity
+- The tool here provides code for extracting eclipse shadow band features from raw recorded videos
 - See the following paper [Image Processing Framework for Eclipse Shadow Band Analysis](https://arxiv.org/abs/2605.09621) for more details
 ---
 ### What You Need
