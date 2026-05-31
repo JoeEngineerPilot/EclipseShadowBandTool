@@ -3,7 +3,7 @@
 ### What You Need
 - **Smartphone** (with video recording app, GPS location and compass app)
 - **Phone stand** (any height between 50cm and 150cm)
-- **White cloth sheet or white poster board** (at least 1 meter squared, larger is okay)
+- **White cloth sheet or white poster board with matte finish** (at least 1 meter squared, larger is okay, avoid high gloss finish)
 - **Tape, clips, or weights** (to secure the white sheet or board vertically)
 - **Location (such as an exterior wall) or mount where you can place the white sheet vertically**
 ---
