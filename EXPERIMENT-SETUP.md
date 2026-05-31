@@ -12,14 +12,14 @@
 - Find a location with a clear view toward the **northwest horizon**
 - The August 2026 eclipse will be close to sunset, so the white sheet or board will **need to be propped vertically** 
 - For this study, preferred locations will explore the effect of altitude and/or center line proximity on band effects
-  - **Experiment Location 1** Exactly along Eclipse center line
-       -Example: La Pola, Spain
-       -Example: Salas, Spain
-  - **Experiment Location 2** As far as possible from Eclipse center line but still within totality
+  - **Experiment Location 1:** A location that is exactly along Eclipse center line
+       - Example: La Pola, Spain
+       - Example: Salas, Spain
+  - **Experiment Location 2:** A location that is far as possible from Eclipse center line but still within totality
       - Example: Bilbao, Spain
       - Example: Zamora, Spain
-  - **Experiment Location 3** Somewhere really high, like on top of a mountain
-  - **Experiment Location 4** Whatever works for you, as long as it is within totality 
+  - **Experiment Location 3:** A location that is somewhere really high, like on top of a mountain
+  - **Experiment Location 4:** Any other location that works for you, as long as it is within totality 
 ---
 ### Step 2: Set Up the White Sheet or Board
 - Attach the **white sheet or board vertically** to a wall or flat surface
