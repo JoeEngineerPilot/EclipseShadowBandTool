@@ -1,6 +1,6 @@
 ## Eclipse Shadow Band Citizen Science Event for the Eclipse on August 12, 2026
 
-### Citizen Science Experiment Goals 
+### Goals 
 - Collect more science data to refine the [Image Processing Framework for Eclipse Shadow Band Analysis](https://arxiv.org/abs/2605.09621)
 - Explore the science of altitude and center line proximity on Eclipse Shadow Band effects 
 - Have fun! Eclipse shadow bands are one of a kind unique event to experience!
