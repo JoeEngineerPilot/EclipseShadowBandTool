@@ -28,7 +28,7 @@
 ---
 ### Step 2: Set Up the White Sheet or Board
 - Attach the **white sheet or board vertically** to a wall or flat surface
-- It doesn't need to be perfectly vertical, as long as it is flat
+- The white sheet or board doesn't need to be perfectly vertical, as long as it is flat and mostly vertical
 - Try to keep it:
   - **Flat and smooth** (minimize wrinkles)
   - **Tightly secured** so it doesn’t move in the wind
