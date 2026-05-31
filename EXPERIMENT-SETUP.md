@@ -3,7 +3,7 @@
 ### Citizen Science Experiment Goals 
 - Explore the effect of altitude and center line proximity on Eclipse Shadow Band effects 
 - Collect more experimental data to refine the [Image Processing Framework for Eclipse Shadow Band Analysis](https://arxiv.org/abs/2605.09621)
-
+---
 ### What You Need
 - **Smartphone** (with video recording app, GPS location and compass app)
 - **Phone stand** (any height between 50cm and 150cm)
@@ -35,14 +35,14 @@
 - The sheet should be facing roughly toward the Sun at the northwest horizon
 - A vertical sheet works especially well when the Sun is low, because the light hits it more directly
 ---
-### Step 3: Take Measurements 
+### Step 3: Measure Location, Orientation and Dimensions 
 - Measure your **GPS location in lattiude and longitude** using your smartphone
 - Measure the **width and height** of white sheet in centimeters
     - Example: White sheet is 100cm x 100xm
 - Measure the **compass orientation** of the white sheet flat face using your smartphone compass feature
     - Example: White sheet is facing 330 degrees
 - The orientation should be approximately in the northwest direction
-  
+---
 ### Step 4: Position the Camera
 - Place your phone on a phone stand facing the sheet
 - Place the camera slightly off to the side to avoid the shadow of the camera appearing on the white sheet
