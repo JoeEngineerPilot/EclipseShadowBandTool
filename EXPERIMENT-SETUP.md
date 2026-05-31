@@ -10,7 +10,7 @@
 - **Phone stand** (any height between 50cm and 150cm)
 - **White cloth sheet or white poster board with matte finish** (at least 1 meter squared, larger is okay, avoid high gloss finish)
 - **Tape, clips, or weights** (to secure the white sheet or board vertically)
-- **Location (such as an exterior wall) or mount where you can place the white sheet vertically**
+- **Good location** where you can place the white sheet vertically such as an exterior wall
 ---
 ### Step 1: Pick Your Geo-Location
 - See [Path of Eclipse on August 12, 2026](https://nso.edu/for-public/eclipse-map-2026/)
