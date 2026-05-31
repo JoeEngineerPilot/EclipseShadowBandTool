@@ -7,13 +7,19 @@
 - **Tape, clips, or weights** (to secure the white sheet or board vertically)
 - **Location (such as an exterior wall) or mount where you can place the white sheet vertically**
 ---
-### Step 1: Pick the Right Spot
+### Step 1: Pick Your Geo-Location
 - See [Path of Eclipse on August 12, 2026](https://nso.edu/for-public/eclipse-map-2026/)
 - Find a location with a clear view toward the **northwest horizon**
 - The August 2026 eclipse will be close to sunset, so the white sheet or board will **need to be propped vertically** 
-- A wall or side of a building works well for mounting the sheet
-- Approximately vertical is fine, it is okay if at a slight angle
-- Make sure nothing blocks the low Sun
+- For this study, preferred locations will explore the effect of altitude and/or center line proximity on band effects
+  - **Experiment Location 1** Exactly along Eclipse center line
+       -Example: La Pola, Spain
+       -Example: Salas, Spain
+  - **Experiment Location 2** As far as possible from Eclipse center line but still within totality
+      - Example: Bilbao, Spain
+      - Example: Zamora, Spain
+  - **Experiment Location 3** Somewhere really high, like on top of a mountain
+  - **Experiment Location 4** Whatever works for you, as long as it is within totality 
 ---
 ### Step 2: Set Up the White Sheet or Board
 - Attach the **white sheet or board vertically** to a wall or flat surface
