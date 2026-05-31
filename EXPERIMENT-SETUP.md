@@ -71,6 +71,10 @@
 - Do **not touch the camera or sheet**
 - Keep everything stable during recording
 ---
+### Step 9: Share Data
+- Share your video recording with jconti@alum.mit.edu
+- You can also post-process the video yourself using this GitHub project
+---
 ## Safety Reminder
 - **Do not look directly at the Sun**
 - You can record shadow bands without looking at the Sun
