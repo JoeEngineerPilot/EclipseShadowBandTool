@@ -21,7 +21,7 @@
 ---
 ### Step 1: Pick Your Geo-Location
 - See [Path of Eclipse on August 12, 2026](https://nso.edu/for-public/eclipse-map-2026/)
-- Find a location with a clear view toward the **northwest horizon**
+- Find a location within the path of totality that has a clear view toward the **northwest horizon**
 - The August 2026 eclipse will be close to sunset, so the white sheet or board will **need to be propped vertically** 
 - For this study, preferred locations will explore the effect of altitude and center line proximity on band effects
   - **Experiment Location 1:** A location that is exactly along Eclipse center line
