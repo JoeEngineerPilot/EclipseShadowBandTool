@@ -1,8 +1,9 @@
-## How to Record Eclipse Shadow Bands (For Eclipse on August 12, 2026)
+## Eclipse Shadow Band Citizen Science Event for the Eclipse on August 12, 2026
 
-### Experiment Goals 
-- Explore the effect of altitude and center line proximity on Eclipse Shadow Band effects 
+### Citizen Science Experiment Goals 
 - Collect more experimental data to refine the [Image Processing Framework for Eclipse Shadow Band Analysis](https://arxiv.org/abs/2605.09621)
+- Explore the effect of altitude and center line proximity on Eclipse Shadow Band effects 
+- Have fun! Eclipse shadow bands are one of a kind unique event to experience!
 ---
 ### What You Need
 - **Smartphone** (with video recording app, GPS location and compass app)
