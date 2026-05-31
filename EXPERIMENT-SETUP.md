@@ -24,6 +24,8 @@
       - Example: Bilbao, Spain
       - Example: Zamora, Spain
   - **Experiment Location 3:** A location that is somewhere really high, like on top of a mountain
+      - Example: Pico San Millán, Spain
+      - Example: Moncayo, Spain
   - **Experiment Location 4:** Any other location that works for you, as long as it is within totality 
 ---
 ### Step 2: Set Up the White Sheet or Board
