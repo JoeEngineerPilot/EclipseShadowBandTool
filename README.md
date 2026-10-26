@@ -6,7 +6,7 @@
 - The phenomenon presents itself as subtle fast moving bands on the ground due to scintillation from atmospheric air turbulence.
 - While visible to the eye, shadow bands are challenging to record due to their low intensity.
 - The tool here provides code for extracting eclipse shadow band features from raw recorded videos. 
-- For more details, see [A quantitative image-processing framework for eclipse shadow band analysis](https://link.springer.com/article/10.1007/s10686-026-10086-4) for more details
+- For more details, see the following published paper [A quantitative image-processing framework for eclipse shadow band analysis](https://link.springer.com/article/10.1007/s10686-026-10086-4) for more details
 
 ### Instructions to Run From Your Browser
 - Click on the "Open in MATLAB Online" button on this GitHub ReadMe page.
