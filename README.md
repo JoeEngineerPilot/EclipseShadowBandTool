@@ -2,7 +2,7 @@
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=JoeEngineerPilot/EclipseShadowBandTool)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- [Eclipse shadow bands](https://en.wikipedia.org/wiki/Shadow_band) are a phenomenon that occurs immediately before and after a solar eclipse.
+- Eclipse shadow bands are a phenomenon that occurs immediately before and after a solar eclipse.
 - The phenomenon presents itself as subtle fast moving bands on the ground due to scintillation from atmospheric air turbulence.
 - While visible to the eye, shadow bands are challenging to record due to their low intensity.
 - The tool here provides code for extracting eclipse shadow band features from raw recorded videos. 
