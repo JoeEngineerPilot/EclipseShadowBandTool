@@ -1,11 +1,20 @@
-% Import raw video file of eclipse shadow bands taken with
-% a phone camera on a stand
+% This script demonstrates a framework for analyzing eclipse shadow 
+% band videos. For more information, see the following reference:
+% Conti, Joseph. "A quantitative image-processing framework for eclipse 
+% shadow band analysis." Experimental Astronomy 62.3 (2026): 25.
+
+% Clear out any variables and figures
 clear all;
 close all force;
-block_size = 3; % number of frames to load from video
-video1 = VideoReader('eclipse-shadow-bands-video.avi');
+
+% Load configuration used for this demo
+config = common_config;
+
+% Load block of images from video file
+block_size = config.block_size; 
+video1 = VideoReader(config.videofile);
 for n = 1:block_size
-    videoBlock(:,:,:,n) = read(video1,n); %#ok<*SAGROW>
+    videoBlock(:,:,:,n) = read(video1,n); 
 end
 
 % Display last frame of video block in figure
@@ -13,13 +22,12 @@ figure
 imshow(videoBlock(:,:,:,end));
 title('Raw Video Frame')
 
-% Transform and Crop
 % Transform the video from a 3-D perspective
-% to a planar 2-D view. This transformation ensures subsequent
+% to an orthographic 2-D view. This transformation ensures subsequent
 % shadow band geometry data is collected in a spatially consistent manner.
-xform_rotate = -5;
-xform_corners = [935 330; 2560 345; 3100 1170; 620 1200;];
-xform_crop = [2900 1940 3890 3160];
+xform_rotate = config.xform_rotate;
+xform_corners = config.xform_corners;
+xform_crop = config.xform_crop;
 xFormBlock = uint8([]);
 for n = 1:block_size
     sz = size(videoBlock(:,:,:,n));
@@ -32,19 +40,24 @@ end
 
 % Display in figure
 figure
-imshow(xFormBlock(:,:,:,end));
-title('Perspective and Crop Transformation')
+imshow(temp_uncropped_image);
+title('Orthographic Transformation of Image')
 
-% Grayscale Transformation
+% Display in figure
+figure
+imshow(xFormBlock(:,:,:,end));
+title('Cropped Image')
+
+% Grayscale transformation
 % Convert the video from RGB to grayscale
 % of intensity values. Overall intensity is needed in order to
 % simplify extraction of shadow band features.
-videoBlockGray = uint8([]); %#ok<UNRCH>
+videoBlockGray = uint8([]); 
 for n = 1:block_size
     videoBlockGray(:,:,n) = rgb2gray(xFormBlock(:,:,:,n));
 end
 
-% Masking: Mask pixels outside of the white sheet with NaNs
+% Mask pixels outside of the white sheet with NaNs
 for n = 1:block_size
     temp_image = double(videoBlockGray(:,:,n));
     mask_ind = find(temp_image<=200);
@@ -57,8 +70,7 @@ figure
 imshow(videoBlockGrayMasked(:,:,:,end));
 title('Grayscale Transformation')
 
-
-% Temporal Normalization
+% Temporal normalization
 % Transform all image frames within video block to have the same
 % median intensity. This accounts for ambient light changing over
 % time as the eclipse approaches. Median is used, instead of mean,
@@ -72,7 +84,7 @@ for n = 1:block_size
 end
 flatFieldBaselineImg = median(double(medianAdjustedVideoBlockGray(:,:,:)),3);
 
-% Temporal Differential
+% Image Differencing
 % Subtract flat field corrected frames from the video with the
 % flat field baseline.
 for n = 1:block_size
@@ -93,7 +105,7 @@ title('Image Differencing')
 timediff_smoothed = [];
 for n = 1:block_size
     temp_image = timediff(:,:,n);
-    temp_image_smoothed = imgaussfilt(temp_image,15);
+    temp_image_smoothed = imgaussfilt(temp_image,config.gaussfilt);
     timediff_smoothed(:,:,n) = temp_image_smoothed;
 end
 
@@ -110,7 +122,7 @@ title('Image Smoothing');
 I = timediff_smoothed_normalized;
 I_mean = mean(I(:),'omitnan');
 I_var = var(I(:),1,'omitnan');
-si = I_var / (I_mean^2)
+si = I_var / (I_mean^2);
 
 % Calculate Orientation Distribution Function (ODF)
 orientations = [];
@@ -118,20 +130,16 @@ im = timediff_smoothed_normalized;
 
 % Edge detection using gradient technique
 imBW = edge(im,'Canny',.1,30);
-retval.edgeBW = imBW;
-
-% Remove laptop bag effects from image
-imBWMasked = imBW;
-imBWMasked(1:900,1:900) = 0;
+edgeBW = imBW;
 
 % Display in figure
 figure
-imshow(imBWMasked);
+imshow(imBW);
 title('Edge Segmentation');
 
 % Get boundaries
-B = bwboundaries(imBWMasked,8,'noholes');
-retval.B = B;
+B = bwboundaries(imBW,8,'noholes');
+B = B;
 
 % Get stats on boundaries
 statsB = [];
@@ -141,7 +149,7 @@ end
 
 % Get quantile of boundary length, this will be used to
 % calculate histogram
-contour_spline_size = 40;
+contour_spline_size = config.splinesize;
 
 % Get boundary data for histogram
 for k = 1:length(B)
@@ -166,7 +174,7 @@ counts = histcounts(orientations,'BinEdges',edges);
 % Get x,y data from histogram
 edgexy = B;
 histy = counts';
-histysmooth = movmean(counts',10);
+histysmooth = movmean(counts',config.movmean);
 histx = edges(1:length(counts))';
 x = histx;
 y = histy;
@@ -231,82 +239,76 @@ cof = confint(ft);
 
 % Ignore boundary conditions
 if ft.b1>180 || ft.b1<0
-    retval.a1 = nan;
-    retval.a1ci = nan;
-    retval.b1 = nan;
-    retval.b1ci = nan;
-    retval.c1 = nan;
-    retval.c1ci = nan;
-    retval.snr1 = nan;
-    retval.snr1ci = nan;
+    a1 = nan;
+    a1ci = nan;
+    b1 = nan;
+    b1ci = nan;
+    c1 = nan;
+    c1ci = nan;
+    snr1 = nan;
+    snr1ci = nan;
 else
-    retval.a1 = ft.a1;
-    retval.a1ci = cof(2,1)-cof(1,1);
-    retval.b1 = ft.b1;
-    retval.b1ci= cof(2,3)-cof(1,3);
-    retval.c1 = ft.c1;
-    retval.c1ci = cof(2,5)-cof(1,5);
-    retval.snr1 = ft.a1/ft.c1;
-    % Calculate approximate confidence interval (error) for snr1 using
-    % standard propagation of uncertainty assuming independent errors:
-    % snr = a1 / c1
-    % d(snr) = snr * sqrt( (da1/a1)^2 + (dc1/c1)^2 )
-    da1 = retval.a1ci;
-    dc1 = retval.c1ci;
-    if retval.a1 ~= 0 && retval.c1 ~= 0 && ~isnan(da1) && ~isnan(dc1)
-        retval.snr1ci = retval.snr1 * sqrt( (da1/retval.a1)^2 + (dc1/retval.c1)^2 );
+    a1 = ft.a1;
+    a1ci = cof(2,1)-cof(1,1);
+    b1 = ft.b1;
+    b1ci= cof(2,3)-cof(1,3);
+    c1 = ft.c1;
+    c1ci = cof(2,5)-cof(1,5);
+    snr1 = ft.a1/ft.c1;
+    da1 = a1ci;
+    dc1 = c1ci;
+    if a1 ~= 0 && c1 ~= 0 && ~isnan(da1) && ~isnan(dc1)
+        snr1ci = snr1 * sqrt( (da1/a1)^2 + (dc1/c1)^2 );
     else
-        retval.snr1ci = nan;
+        snr1ci = nan;
     end
 end
 
 % Ignore boundary conditions
 if ft.b2>180 || ft.b2<0
-    retval.a2 = nan;
-    retval.a2ci= nan;
-    retval.b2 = nan;
-    retval.b2ci = nan;
-    retval.c2 = nan;
-    retval.c2ci = nan;
-    retval.snr2 = nan;
-    retval.snr2ci = nan;
+    a2 = nan;
+    a2ci= nan;
+    b2 = nan;
+    b2ci = nan;
+    c2 = nan;
+    c2ci = nan;
+    snr2 = nan;
+    snr2ci = nan;
 else
-    retval.a2 = ft.a2;
-    retval.a2ci = cof(2,2)-cof(1,2);
-    retval.b2 = ft.b2;
-    retval.b2ci = cof(2,4)-cof(1,4);
-    retval.c2 = ft.c2;
-    retval.c2ci= cof(2,6)-cof(1,6);
-    retval.snr2 = ft.a2/ft.c2;
-    % Calculate approximate confidence interval (error) for snr1 using
-    % standard propagation of uncertainty assuming independent errors:
-    % snr = a1 / c1
-    % d(snr) = snr * sqrt( (da1/a1)^2 + (dc1/c1)^2 )
-    da2 = retval.a2ci;
-    dc2 = retval.c2ci;
-    if retval.a2 ~= 0 && retval.c2 ~= 0 && ~isnan(da2) && ~isnan(dc2)
-        retval.snr2ci = retval.snr2 * sqrt( (da2/retval.a2)^2 + (dc2/retval.c2)^2 );
+    a2 = ft.a2;
+    a2ci = cof(2,2)-cof(1,2);
+    b2 = ft.b2;
+    b2ci = cof(2,4)-cof(1,4);
+    c2 = ft.c2;
+    c2ci= cof(2,6)-cof(1,6);
+    snr2 = ft.a2/ft.c2;
+    da2 = a2ci;
+    dc2 = c2ci;
+    if a2 ~= 0 && c2 ~= 0 && ~isnan(da2) && ~isnan(dc2)
+        snr2ci = snr2 * sqrt( (da2/a2)^2 + (dc2/c2)^2 );
     else
-        retval.snr2ci = nan;
+        snr2ci = nan;
     end
 end
 
 indstart = find(xprime==0);
 indstop = find(xprime==180);
-retval.x = xprime(indstart:indstop);
-retval.y = ywrap(indstart:indstop);
+x = xprime(indstart:indstop);
+y = ywrap(indstart:indstop);
+
 % Evaluate fitted curve on the displayed x-range
-retval.yft = ft(xprime(indstart:indstop));
+yft = ft(xprime(indstart:indstop));
+
 % Calculate 95% confidence bounds for the fit over that range
 [yfit] = predint(ft, xprime(indstart:indstop), 0.95, 'functional', 'on');
-retval.yfit_ci_lower = yfit(:,1);
-retval.yfit_ci_upper = yfit(:,2);
+yfit_ci_lower = yfit(:,1);
+yfit_ci_upper = yfit(:,2);
 
 % Display in figure
 figure
-plot(retval.x, retval.y, 'k-', 'DisplayName','Data');
+plot(x, y, 'k-', 'DisplayName','Data');
 hold on;
-hfit = plot(retval.x, retval.yft, 'r-', 'LineWidth',1.5, 'DisplayName','Fit');
+hfit = plot(x, yft, 'r-', 'LineWidth',1.5, 'DisplayName','Fit');
 % Ensure the fit line is on top
 uistack(hfit,'top')
 legend('show','Location','best')
@@ -315,15 +317,15 @@ ylabel('Response')
 hold off;
 title('Orientation Distribution Function')
 
-if isnan(retval.b1)
+if isnan(b1)
     b1 = 0;
 else
-    b1 = 90-retval.b1;
+    b1 = 90-b1;
 end
 
 % Rotate image so that shadow bands are vertical and convert to double
 Irot = imrotate(im, theta, 'bilinear');
-retval.irot = Irot;
+irot = Irot;
 
 % Display in figure
 figure
@@ -357,7 +359,7 @@ else
     P1(2:end) = 2*P1(2:end);
 end
 
-% Compenstate for window power
+% Compensate for window power
 psd = P1 / U; % units = power per bin
 
 % Plot PSD vs image spatial frequency (cycles per meter)
@@ -379,12 +381,12 @@ end
 phase_rad = angle(X1);  % principal value in [-pi, pi]
 
 % Return results
-retval.f = f';
-retval.psd = psd;
-retval.phase = phase_rad;
+f = f';
+psd = psd;
+phase = phase_rad;
 
 % Display in figure
 figure
 loglog(f, real(10*log10(psd)));
 axis tight;
-title('Power Spectral Density along Primary Orientation');
+title('Power Spectral Density along Primary Band Orientation');
